@@ -1,8 +1,27 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import jQuery from 'jquery';
 
 class App extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      appointments: []
+    }
+  }
+
+  componentDidMount() {
+    console.log('ajax');
+    jQuery.ajax({
+      type: "GET",
+      url: 'http://localhost:3001/appointments'
+    }).done(data => {
+      console.log('data');
+      this.setState({appointments: data});
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -11,14 +30,11 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <p className="App-intro">
+            {this.state.appointments.map(appointment => {
+              return(<p>{appointment.title}</p>);
+            })}
+          </p>
         </header>
       </div>
     );
