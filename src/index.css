@@ -1,14 +1,34 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    width: 500px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    padding-bottom: 200px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.submit-button {
+    background: #CC0000;
+    color: #FFFFFF;
+    cursor: pointer;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0px;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.submit-button:disabled {
+    background: #BBBBBB;
+    cursor: not-allowed;
+}
+
+.appointment {
+    padding-top: 10px;
+    border-bottom: solid 1px #ccc;
+}
+
+a {
+    text-decoration: none;
+    color: darkred;
 }
