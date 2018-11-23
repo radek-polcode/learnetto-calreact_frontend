@@ -4,6 +4,18 @@ import $ from 'jquery';
 
 export default class AppHeader extends React.Component {
 
+  componentDidMount () {
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:3001/auth/validate_token',
+      datatype: "JSON",
+      headers: JSON.parse(sessionStorage.getItem('user'))
+    })
+    .fail(() => {
+      this.props.history.push('/login');
+    })
+  }
+
   handleSignOut = (e) => {
     e.preventDefault();
     $.ajax({
